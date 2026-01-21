@@ -1,506 +1,688 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Servicios profesionales de albañilería y construcción. Más de 10 años de experiencia en reformas, reparaciones y construcción. Trabajos garantizados.">
-    <meta name="keywords" content="albañil, construcción, reformas, reparaciones, mampostería, revoques">
-    <meta name="author" content="Miguel Diaz Construcciones - Albañilería Profesional">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Servicios profesionales de albañilería y construcción. Más de 10 años de experiencia en reformas, reparaciones y construcción. Trabajos garantizados."
+    />
+    <meta
+      name="keywords"
+      content="albañil, construcción, reformas, reparaciones, mampostería, revoques"
+    />
+    <meta
+      name="author"
+      content="Miguel Diaz Construcciones - Albañilería Profesional"
+    />
+
     <!-- Open Graph para redes sociales -->
-    <meta property="og:title" content="Albañilería Profesional - Miguel Diaz">
-    <meta property="og:description" content="Servicios de albañilería con más de 10 años de experiencia">
-    <meta property="og:type" content="website">
-    
-    <title>Miguel Diaz Construcciones - Albañilería Profesional | Construcción y Reformas</title>
-    
+    <meta property="og:title" content="Albañilería Profesional - Miguel Diaz" />
+    <meta
+      property="og:description"
+      content="Servicios de albañilería con más de 10 años de experiencia"
+    />
+    <meta property="og:type" content="website" />
+
+    <title>
+      Miguel Diaz Construcciones - Albañilería Profesional | Construcción y
+      Reformas
+    </title>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    
-    <style>
-                body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', 'Inter', sans-serif;
-        }
-        /* Animaciones suaves */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-        
-        /* Lazy loading placeholder */
-        .lazy-img {
-            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-            background-size: 200% 100%;
-            animation: loading 1.5s infinite;
-        }
-        
-        @keyframes loading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-        
-        /* Transiciones suaves */
-        * {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        /* Scroll suave */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Modal de lightbox */
-        .lightbox-modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            animation: fadeIn 0.3s ease;
-        }
-        
-        .lightbox-modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .lightbox-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90%;
-            animation: fadeIn 0.4s ease;
-        }
-        
-        .lightbox-image {
-            max-width: 100%;
-            max-height: 85vh;
-            object-fit: contain;
-            border-radius: 8px;
-        }
-        
-        .lightbox-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            font-size: 2rem;
-            padding: 1rem 1.5rem;
-            cursor: pointer;
-            border-radius: 50%;
-            transition: all 0.3s;
-            z-index: 10000;
-        }
-        
-        .lightbox-nav:hover {
-            background: white;
-            transform: translateY(-50%) scale(1.1);
-        }
-        
-        .lightbox-prev {
-            left: 2rem;
-        }
-        
-        .lightbox-next {
-            right: 2rem;
-        }
-        
-        .lightbox-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            font-size: 2rem;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            border-radius: 50%;
-            z-index: 10000;
-            transition: all 0.3s;
-        }
-        
-        .lightbox-close:hover {
-            background: white;
-            transform: rotate(90deg);
-        }
-        
-        .lightbox-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: white;
-            padding: 2rem 1rem 1rem;
-            text-align: center;
-        }
-        
-        @media (max-width: 768px) {
-            .lightbox-nav {
-                font-size: 1.5rem;
-                padding: 0.75rem 1rem;
-            }
-            .lightbox-prev { left: 0.5rem; }
-            .lightbox-next { right: 0.5rem; }
-            .lightbox-close {
-                top: 0.5rem;
-                right: 0.5rem;
-                font-size: 1.5rem;
-            }
-        }
-        
-        /* Botón flotante de WhatsApp */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        .whatsapp-float:hover {
-            animation: none;
-            transform: scale(1.15);
-        }
-        
-        /* Badge de años de experiencia */
-        .experience-badge {
-            position: absolute;
-            top: -10px;
-            right: -80px;
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 50%;
-            font-weight: bold;
-            font-size: 0.75rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-        
-        /* Tooltip del botón flotante */
-        .whatsapp-tooltip {
-            position: absolute;
-            right: 70px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: white;
-            color: #333;
-            padding: 10px 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            white-space: nowrap;
-            font-size: 0.9rem;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
-        }
-        
-        .whatsapp-float:hover .whatsapp-tooltip {
-            opacity: 1;
-        }
-        
-        .whatsapp-tooltip::after {
-            content: '';
-            position: absolute;
-            right: -8px;
-            top: 50%;
-            transform: translateY(-50%);
-            border: 8px solid transparent;
-            border-left-color: white;
-        }
-        
-        @media (max-width: 768px) {
-            .whatsapp-tooltip {
-                display: none;
-            }
-        }
-    </style>
-</head>
-<body class="bg-gray-50">
-    
-    <!-- Navegación -->
-    <header class="bg-white shadow-md fixed w-full top-0 z-50">
-        <nav class="container mx-auto px-4 py-4 flex justify-between items-center max-w-6xl">
-            <h1 class="text-xl md:text-2xl font-bold text-gray-800"> Miguel Diaz Construcciones</h1>
-            <div class="flex gap-4">
-                <a href="#inicio" class="text-gray-700 hover:text-orange-600 text-sm md:text-base">Inicio</a>
-                <a href="#servicios" class="text-gray-700 hover:text-orange-600 text-sm md:text-base">Servicios</a>
-                <a href="#galeria" class="text-gray-700 hover:text-orange-600 text-sm md:text-base">Galería</a>
-                <a href="#contacto" class="text-gray-700 hover:text-orange-600 text-sm md:text-base">Contacto</a>
-            </div>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="pt-20 md:pt-24 pb-12 md:pb-20 bg-gradient-to-br from-orange-500 to-orange-700 text-white relative">
-        <div class="container mx-auto px-4 max-w-6xl">
-            <div class="text-center fade-in py-12 md:py-20 relative">
-                <!-- Badge de años de experiencia -->
-                <div class="inline-block relative mb-4">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-4 md:mb-6">Albañilería Profesional</h2>
-                    <div class="experience-badge">
-                        <div class="text-center">
-                            <div class="text-lg font-bold">10+</div>
-                            <div class="text-xs">AÑOS</div>
-                        </div>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Poppins", "Inter", sans-serif;
+      }
+      /* Animaciones suaves */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in {
+        animation: fadeIn 0.6s ease-out forwards;
+      }
+
+      /* Lazy loading placeholder */
+      .lazy-img {
+        background: linear-gradient(
+          90deg,
+          #f0f0f0 25%,
+          #e0e0e0 50%,
+          #f0f0f0 75%
+        );
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+      }
+
+      @keyframes loading {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+
+      /* Transiciones suaves */
+      * {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      /* Scroll suave */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Modal de lightbox */
+      .lightbox-modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.95);
+        animation: fadeIn 0.3s ease;
+      }
+
+      .lightbox-modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .lightbox-content {
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .lightbox-image {
+        max-width: 100%;
+        max-height: 85vh;
+        object-fit: contain;
+        border-radius: 8px;
+      }
+
+      .lightbox-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        font-size: 2rem;
+        padding: 1rem 1.5rem;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: all 0.3s;
+        z-index: 10000;
+      }
+
+      .lightbox-nav:hover {
+        background: white;
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      .lightbox-prev {
+        left: 2rem;
+      }
+
+      .lightbox-next {
+        right: 2rem;
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        font-size: 2rem;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        border-radius: 50%;
+        z-index: 10000;
+        transition: all 0.3s;
+      }
+
+      .lightbox-close:hover {
+        background: white;
+        transform: rotate(90deg);
+      }
+
+      .lightbox-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        color: white;
+        padding: 2rem 1rem 1rem;
+        text-align: center;
+      }
+
+      @media (max-width: 768px) {
+        .lightbox-nav {
+          font-size: 1.5rem;
+          padding: 0.75rem 1rem;
+        }
+        .lightbox-prev {
+          left: 0.5rem;
+        }
+        .lightbox-next {
+          right: 0.5rem;
+        }
+        .lightbox-close {
+          top: 0.5rem;
+          right: 0.5rem;
+          font-size: 1.5rem;
+        }
+      }
+
+      /* Botón flotante de WhatsApp */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
+      .whatsapp-float:hover {
+        animation: none;
+        transform: scale(1.15);
+      }
+
+      /* Badge de años de experiencia */
+      .experience-badge {
+        position: absolute;
+        top: -10px;
+        right: -80px;
+        background: linear-gradient(135deg, #fbbf24, #f59e0b);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 50%;
+        font-weight: bold;
+        font-size: 0.75rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+
+      /* Tooltip del botón flotante */
+      .whatsapp-tooltip {
+        position: absolute;
+        right: 70px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: white;
+        color: #333;
+        padding: 10px 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        white-space: nowrap;
+        font-size: 0.9rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+      }
+
+      .whatsapp-float:hover .whatsapp-tooltip {
+        opacity: 1;
+      }
+
+      .whatsapp-tooltip::after {
+        content: "";
+        position: absolute;
+        right: -8px;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 8px solid transparent;
+        border-left-color: white;
+      }
+
+      @media (max-width: 768px) {
+        .whatsapp-tooltip {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navegación -->
+      <header class="fixed w-full top-0 z-50 slide-down">
+        <div class="bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100">
+            <nav class="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center max-w-6xl">
+                <div class="flex items-center gap-2 md:gap-3">
+                    <div class="w-9 h-9 md:w-10 md:h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center shadow-md">
+                        <span class="text-white text-lg md:text-xl font-bold">MD</span>
+                    </div>
+                    <div>
+                        <h1 class="text-base md:text-lg lg:text-xl font-bold text-gray-800 tracking-tight">Miguel Diaz</h1>
+                        <p class="text-[10px] md:text-xs text-gray-500 font-medium">Construcciones</p>
                     </div>
                 </div>
-                <p class="text-lg md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto">Más de 10 años transformando espacios con calidad, compromiso y experiencia. Tu proyecto en manos expertas.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="https://wa.me/5492235000000?text=Hola%20Juan!%20Vi%20tu%20sitio%20web%20y%20me%20interesa%20solicitar%20un%20presupuesto%20para%20un%20trabajo.%20Te%20cuento%3A%20" 
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="bg-white text-orange-600 px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold hover:bg-gray-100 hover:scale-105 shadow-lg w-full sm:w-auto text-center flex items-center justify-center gap-2">
-                        <span>💬</span>
-                        Solicitar Presupuesto por WhatsApp
-                    </a>
-                    <a href="#galeria" class="border-2 border-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold hover:bg-white hover:text-orange-600 hover:scale-105 w-full sm:w-auto text-center">
-                        Ver Mis Trabajos
+                <div class="flex gap-3 md:gap-6 items-center">
+                    <!-- Enlaces ocultos en móvil, visibles en tablet+ -->
+                    <a href="#inicio" class="hidden md:block text-gray-600 hover:text-orange-600 text-sm font-medium transition-all hover:scale-105">Inicio</a>
+                    <a href="#servicios" class="hidden md:block text-gray-600 hover:text-orange-600 text-sm font-medium transition-all hover:scale-105">Servicios</a>
+                    <a href="#galeria" class="hidden md:block text-gray-600 hover:text-orange-600 text-sm font-medium transition-all hover:scale-105">Galería</a>
+                    <!-- Botón visible en todas las pantallas pero adaptado -->
+                    <a href="#contacto" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-xs md:text-sm font-semibold hover:shadow-lg hover:scale-105 transition-all">
+                        Contacto
                     </a>
                 </div>
-            </div>
+            </nav>
         </div>
+    </header>
+    <!-- Hero Section -->
+    <section
+      id="inicio"
+      class="pt-20 md:pt-24 pb-12 md:pb-20 bg-gradient-to-br from-orange-500 to-orange-700 text-white relative"
+    >
+      <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center fade-in py-12 md:py-20 relative">
+          <!-- Badge de años de experiencia -->
+          <div class="inline-block relative mb-4">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 md:mb-6">
+              Albañilería Profesional
+            </h2>
+            <div class="experience-badge">
+              <div class="text-center">
+                <div class="text-lg font-bold">10+</div>
+                <div class="text-xs">AÑOS</div>
+              </div>
+            </div>
+          </div>
+          <p class="text-lg md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto">
+            Más de 10 años transformando espacios con calidad, compromiso y
+            experiencia. Tu proyecto en manos expertas.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          >
+            <a
+              href="https://wa.me/5492235000000?text=Hola%20Juan!%20Vi%20tu%20sitio%20web%20y%20me%20interesa%20solicitar%20un%20presupuesto%20para%20un%20trabajo.%20Te%20cuento%3A%20"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-white text-orange-600 px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold hover:bg-gray-100 hover:scale-105 shadow-lg w-full sm:w-auto text-center flex items-center justify-center gap-2"
+            >
+              <span>💬</span>
+              Solicitar Presupuesto por WhatsApp
+            </a>
+            <a
+              href="#galeria"
+              class="border-2 border-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold hover:bg-white hover:text-orange-600 hover:scale-105 w-full sm:w-auto text-center"
+            >
+              Ver Mis Trabajos
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Servicios -->
     <section id="servicios" class="py-12 md:py-20 bg-white">
-        <div class="container mx-auto px-4 max-w-6xl">
-            <h2 class="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-800">Servicios Ofrecidos</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                
-                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-xl hover:scale-105">
-                    <div class="text-4xl mb-4">🧱</div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-800">Construcción</h3>
-                    <p class="text-gray-600">Construcción de muros, paredes y estructuras de mampostería con materiales de primera calidad.</p>
-                </div>
-                
-                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-xl hover:scale-105">
-                    <div class="text-4xl mb-4">🔨</div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-800">Reformas</h3>
-                    <p class="text-gray-600">Renovación completa de baños, cocinas y espacios. Modernizamos tu hogar.</p>
-                </div>
-                
-                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-xl hover:scale-105">
-                    <div class="text-4xl mb-4">🎨</div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-800">Revoques</h3>
-                    <p class="text-gray-600">Revoques finos y gruesos, terminaciones impecables para interiores y exteriores.</p>
-                </div>
-                
-                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-xl hover:scale-105">
-                    <div class="text-4xl mb-4">🚿</div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-800">Baños</h3>
-                    <p class="text-gray-600">Instalación completa de sanitarios, azulejos y accesorios. Impermeabilización garantizada.</p>
-                </div>
-                
-                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-xl hover:scale-105">
-                    <div class="text-4xl mb-4">🏠</div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-800">Mantenimiento</h3>
-                    <p class="text-gray-600">Reparaciones generales, arreglos de humedad, grietas y todo tipo de mantenimiento.</p>
-                </div>
-                
-                <div class="bg-gray-50 p-6 rounded-lg hover:shadow-xl hover:scale-105">
-                    <div class="text-4xl mb-4">📐</div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-800">Colocación</h3>
-                    <p class="text-gray-600">Cerámica, porcelanato, piedra y revestimientos. Trabajos prolijos y duraderos.</p>
-                </div>
-                
-            </div>
+      <div class="container mx-auto px-4 max-w-6xl">
+        <h2
+          class="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-800"
+        >
+          Servicios Ofrecidos
+        </h2>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+        >
+          <div
+            class="bg-gray-50 p-6 rounded-lg hover:shadow-xl hover:scale-105"
+          >
+            <div class="text-4xl mb-4">🧱</div>
+            <h3 class="text-xl font-bold mb-3 text-gray-800">Construcción</h3>
+            <p class="text-gray-600">
+              Construcción de muros, paredes y estructuras de mampostería con
+              materiales de primera calidad.
+            </p>
+          </div>
+
+          <div
+            class="bg-gray-50 p-6 rounded-lg hover:shadow-xl hover:scale-105"
+          >
+            <div class="text-4xl mb-4">🔨</div>
+            <h3 class="text-xl font-bold mb-3 text-gray-800">Reformas</h3>
+            <p class="text-gray-600">
+              Renovación completa de baños, cocinas y espacios. Modernizamos tu
+              hogar.
+            </p>
+          </div>
+
+          <div
+            class="bg-gray-50 p-6 rounded-lg hover:shadow-xl hover:scale-105"
+          >
+            <div class="text-4xl mb-4">🎨</div>
+            <h3 class="text-xl font-bold mb-3 text-gray-800">Revoques</h3>
+            <p class="text-gray-600">
+              Revoques finos y gruesos, terminaciones impecables para interiores
+              y exteriores.
+            </p>
+          </div>
+
+          <div
+            class="bg-gray-50 p-6 rounded-lg hover:shadow-xl hover:scale-105"
+          >
+            <div class="text-4xl mb-4">🚿</div>
+            <h3 class="text-xl font-bold mb-3 text-gray-800">Baños</h3>
+            <p class="text-gray-600">
+              Instalación completa de sanitarios, azulejos y accesorios.
+              Impermeabilización garantizada.
+            </p>
+          </div>
+
+          <div
+            class="bg-gray-50 p-6 rounded-lg hover:shadow-xl hover:scale-105"
+          >
+            <div class="text-4xl mb-4">🏠</div>
+            <h3 class="text-xl font-bold mb-3 text-gray-800">Mantenimiento</h3>
+            <p class="text-gray-600">
+              Reparaciones generales, arreglos de humedad, grietas y todo tipo
+              de mantenimiento.
+            </p>
+          </div>
+
+          <div
+            class="bg-gray-50 p-6 rounded-lg hover:shadow-xl hover:scale-105"
+          >
+            <div class="text-4xl mb-4">📐</div>
+            <h3 class="text-xl font-bold mb-3 text-gray-800">Colocación</h3>
+            <p class="text-gray-600">
+              Cerámica, porcelanato, piedra y revestimientos. Trabajos prolijos
+              y duraderos.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Galería -->
     <section id="galeria" class="py-12 md:py-20 bg-gray-100">
-        <div class="container mx-auto px-4 max-w-6xl">
-            <h2 class="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-800">Galería de Trabajos</h2>
-            <p class="text-center text-gray-600 mb-8">Click en cualquier imagen para verla en detalle y navegar por el resto</p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6" id="gallery-container">
-                <!-- Las imágenes se cargarán dinámicamente -->
-            </div>
+      <div class="container mx-auto px-4 max-w-6xl">
+        <h2
+          class="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-800"
+        >
+          Galería de Trabajos
+        </h2>
+        <p class="text-center text-gray-600 mb-8">
+          Click en cualquier imagen para verla en detalle y navegar por el resto
+        </p>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
+          id="gallery-container"
+        >
+          <!-- Las imágenes se cargarán dinámicamente -->
         </div>
+      </div>
     </section>
 
     <!-- Lightbox Modal -->
     <div id="lightbox-modal" class="lightbox-modal">
-        <button id="lightbox-close" class="lightbox-close" aria-label="Cerrar">&times;</button>
-        <button id="lightbox-prev" class="lightbox-nav lightbox-prev" aria-label="Anterior">&#10094;</button>
-        <button id="lightbox-next" class="lightbox-nav lightbox-next" aria-label="Siguiente">&#10095;</button>
-        
-        <div class="lightbox-content">
-            <img id="lightbox-image" class="lightbox-image" src="" alt="">
-            <div class="lightbox-info">
-                <h3 id="lightbox-title" class="text-xl font-bold mb-2"></h3>
-                <p id="lightbox-description" class="text-sm"></p>
-                <p id="lightbox-counter" class="text-xs mt-2 opacity-75"></p>
-            </div>
+      <button id="lightbox-close" class="lightbox-close" aria-label="Cerrar">
+        &times;
+      </button>
+      <button
+        id="lightbox-prev"
+        class="lightbox-nav lightbox-prev"
+        aria-label="Anterior"
+      >
+        &#10094;
+      </button>
+      <button
+        id="lightbox-next"
+        class="lightbox-nav lightbox-next"
+        aria-label="Siguiente"
+      >
+        &#10095;
+      </button>
+
+      <div class="lightbox-content">
+        <img id="lightbox-image" class="lightbox-image" src="" alt="" />
+        <div class="lightbox-info">
+          <h3 id="lightbox-title" class="text-xl font-bold mb-2"></h3>
+          <p id="lightbox-description" class="text-sm"></p>
+          <p id="lightbox-counter" class="text-xs mt-2 opacity-75"></p>
         </div>
+      </div>
     </div>
 
     <!-- Contacto -->
     <section id="contacto" class="py-12 md:py-20 bg-white">
-        <div class="container mx-auto px-4 max-w-6xl">
-            <h2 class="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-800">Contacto</h2>
-            <div class="max-w-2xl mx-auto text-center">
-                <p class="text-lg md:text-xl text-gray-600 mb-8">¿Tenés un proyecto en mente? Contactame y lo hacemos realidad.</p>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mb-8">
-                    <a href="https://wa.me/5492235000000?text=Hola%20Juan!%20Vi%20tu%20portafolio%20web%20y%20necesito%20un%20presupuesto.%20Mi%20proyecto%20es%3A%20" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="bg-green-500 text-white p-6 rounded-lg hover:bg-green-600 hover:scale-105 shadow-lg">
-                        <div class="text-4xl mb-2">💬</div>
-                        <div class="font-bold">WhatsApp</div>
-                        <div class="text-sm mt-1">Respuesta inmediata</div>
-                    </a>
-                    
-                    <a href="https://instagram.com/juanperez_albanil" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="bg-gradient-to-br from-purple-500 to-pink-500 text-white p-6 rounded-lg hover:from-purple-600 hover:to-pink-600 hover:scale-105 shadow-lg">
-                        <div class="text-4xl mb-2">📷</div>
-                        <div class="font-bold">Instagram</div>
-                        <div class="text-sm mt-1">Ver más trabajos</div>
-                    </a>
-                    
-                    <a href="https://facebook.com/juanperezalbanil" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="bg-blue-600 text-white p-6 rounded-lg hover:bg-blue-700 hover:scale-105 shadow-lg">
-                        <div class="text-4xl mb-2">👍</div>
-                        <div class="font-bold">Facebook</div>
-                        <div class="text-sm mt-1">Seguinos</div>
-                    </a>
-                </div>
+      <div class="container mx-auto px-4 max-w-6xl">
+        <h2
+          class="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-800"
+        >
+          Contacto
+        </h2>
+        <div class="max-w-2xl mx-auto text-center">
+          <p class="text-lg md:text-xl text-gray-600 mb-8">
+            ¿Tenés un proyecto en mente? Contactame y lo hacemos realidad.
+          </p>
 
-                <div class="bg-gray-50 p-6 md:p-8 rounded-lg">
-                    <h3 class="font-bold text-lg md:text-xl mb-4 text-gray-800">Datos de Contacto</h3>
-                    <p class="text-gray-700 mb-2">
-                        📞 <strong>Teléfono:</strong> 
-                        <a href="tel:+5492235000000" class="text-orange-600 hover:text-orange-700 hover:underline font-semibold">
-                            +54 9 223 500-0000
-                        </a>
-                    </p>
-                    <p class="text-gray-700 mb-2">📍 <strong>Zona:</strong> Mar del Plata y alrededores</p>
-                    <p class="text-gray-700">⏰ <strong>Horario:</strong> Lunes a Sábado 8:00 - 18:00</p>
-                </div>
-            </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mb-8">
+            <a
+              href="https://wa.me/5492235000000?text=Hola%20Juan!%20Vi%20tu%20portafolio%20web%20y%20necesito%20un%20presupuesto.%20Mi%20proyecto%20es%3A%20"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-green-500 text-white p-6 rounded-lg hover:bg-green-600 hover:scale-105 shadow-lg"
+            >
+              <div class="text-4xl mb-2">💬</div>
+              <div class="font-bold">WhatsApp</div>
+              <div class="text-sm mt-1">Respuesta inmediata</div>
+            </a>
+
+            <a
+              href="https://instagram.com/juanperez_albanil"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-gradient-to-br from-purple-500 to-pink-500 text-white p-6 rounded-lg hover:from-purple-600 hover:to-pink-600 hover:scale-105 shadow-lg"
+            >
+              <div class="text-4xl mb-2">📷</div>
+              <div class="font-bold">Instagram</div>
+              <div class="text-sm mt-1">Ver más trabajos</div>
+            </a>
+
+            <a
+              href="https://facebook.com/juanperezalbanil"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-blue-600 text-white p-6 rounded-lg hover:bg-blue-700 hover:scale-105 shadow-lg"
+            >
+              <div class="text-4xl mb-2">👍</div>
+              <div class="font-bold">Facebook</div>
+              <div class="text-sm mt-1">Seguinos</div>
+            </a>
+          </div>
+
+          <div class="bg-gray-50 p-6 md:p-8 rounded-lg">
+            <h3 class="font-bold text-lg md:text-xl mb-4 text-gray-800">
+              Datos de Contacto
+            </h3>
+            <p class="text-gray-700 mb-2">
+              📞 <strong>Teléfono:</strong>
+              <a
+                href="tel:+5492235000000"
+                class="text-orange-600 hover:text-orange-700 hover:underline font-semibold"
+              >
+                +54 9 223 500-0000
+              </a>
+            </p>
+            <p class="text-gray-700 mb-2">
+              📍 <strong>Zona:</strong> Mar del Plata y alrededores
+            </p>
+            <p class="text-gray-700">
+              ⏰ <strong>Horario:</strong> Lunes a Sábado 8:00 - 18:00
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4 max-w-6xl text-center">
-            <p class="mb-2">&copy; 2026 Juan Pérez - Albañilería Profesional</p>
-            <p class="text-gray-400 text-sm">Sitio web diseñado para mostrar trabajos de calidad</p>
-        </div>
+      <div class="container mx-auto px-4 max-w-6xl text-center">
+        <p class="mb-2">&copy; 2026 Juan Pérez - Albañilería Profesional</p>
+        <p class="text-gray-400 text-sm">
+          Sitio web diseñado para mostrar trabajos de calidad
+        </p>
+      </div>
     </footer>
 
     <!-- Botón Flotante de WhatsApp -->
-    <a href="https://wa.me/5492235000000?text=Hola%20Juan!%20Vi%20tu%20portafolio%20y%20me%20gustaría%20consultarte%20sobre%20un%20trabajo." 
-       target="_blank" 
-       rel="noopener noreferrer"
-       class="whatsapp-float"
-       aria-label="Contactar por WhatsApp">
-        <div class="whatsapp-tooltip">¿Necesitás un presupuesto?</div>
-        <div class="bg-green-500 hover:bg-green-600 w-16 h-16 rounded-full flex items-center justify-center shadow-2xl">
-            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-            </svg>
-        </div>
+    <a
+      href="https://wa.me/5492235000000?text=Hola%20Juan!%20Vi%20tu%20portafolio%20y%20me%20gustaría%20consultarte%20sobre%20un%20trabajo."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="whatsapp-float"
+      aria-label="Contactar por WhatsApp"
+    >
+      <div class="whatsapp-tooltip">¿Necesitás un presupuesto?</div>
+      <div
+        class="bg-green-500 hover:bg-green-600 w-16 h-16 rounded-full flex items-center justify-center shadow-2xl"
+      >
+        <svg
+          class="w-10 h-10 text-white"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+          />
+        </svg>
+      </div>
     </a>
 
     <script>
-        // CONFIGURACIÓN DE IMÁGENES - FLUJO
-        // Personalizables: 
-        // 1. Subir fotos a ImgBB, Cloudinary o similar
-        // 2. Copiar las URLs de las imágenes
-        // 3. Reemplazar las URLs abajo
-        // 4. Cambiar título y descripción de cada trabajo
-        
-        const galleryImages = [
-            { 
-                src: 'https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=800',
-                thumb: 'https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=400',
-                alt: 'Construcción de muro de ladrillos',
-                title: 'Muro de Ladrillos',
-                description: 'Construcción de muro perimetral - Zona Norte'
-            },
-            { 
-                src: 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800',
-                thumb: 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=400',
-                alt: 'Reforma de baño completa',
-                title: 'Reforma de Baño',
-                description: 'Renovación completa con cerámica premium'
-            },
-            { 
-                src: 'https://images.unsplash.com/photo-1615971677499-5467cbab01c0?w=800',
-                thumb: 'https://images.unsplash.com/photo-1615971677499-5467cbab01c0?w=400',
-                alt: 'Colocación de cerámica',
-                title: 'Colocación de Cerámica',
-                description: 'Porcelanato de primera calidad'
-            },
-            { 
-                src: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800',
-                thumb: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400',
-                alt: 'Revoque exterior',
-                title: 'Revoque Exterior',
-                description: 'Frente de casa con revoque impermeable'
-            },
-            { 
-                src: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800',
-                thumb: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400',
-                alt: 'Construcción de pared',
-                title: 'Construcción de Pared',
-                description: 'División de ambientes con ladrillo hueco'
-            },
-            { 
-                src: 'https://images.unsplash.com/photo-1563298723-dcfebaa392e3?w=800',
-                thumb: 'https://images.unsplash.com/photo-1563298723-dcfebaa392e3?w=400',
-                alt: 'Cocina reformada',
-                title: 'Reforma de Cocina',
-                description: 'Mesada y revestimiento cerámico completo'
-            }
-        ];
+      // CONFIGURACIÓN DE IMÁGENES - FLUJO
+      // Personalizables:
+      // 1. Subir fotos a ImgBB, Cloudinary o similar
+      // 2. Copiar las URLs de las imágenes
+      // 3. Reemplazar las URLs abajo
+      // 4. Cambiar título y descripción de cada trabajo
 
-        // Función que crea elementos de galería con lazy loading
-        function createGalleryItems() {
-            const container = document.getElementById('gallery-container');
-            
-            galleryImages.forEach((image, index) => {
-                const div = document.createElement('div');
-                div.className = 'relative overflow-hidden rounded-lg shadow-md hover:shadow-2xl cursor-pointer group';
-                div.style.animationDelay = `${index * 0.1}s`;
-                div.classList.add('fade-in');
-                div.onclick = () => openLightbox(index);
-                
-                div.innerHTML = `
+      const galleryImages = [
+        {
+          src: "https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=800",
+          thumb:
+            "https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=400",
+          alt: "Construcción de muro de ladrillos",
+          title: "Muro de Ladrillos",
+          description: "Construcción de muro perimetral - Zona Norte",
+        },
+        {
+          src: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800",
+          thumb:
+            "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=400",
+          alt: "Reforma de baño completa",
+          title: "Reforma de Baño",
+          description: "Renovación completa con cerámica premium",
+        },
+        {
+          src: "https://images.unsplash.com/photo-1615971677499-5467cbab01c0?w=800",
+          thumb:
+            "https://images.unsplash.com/photo-1615971677499-5467cbab01c0?w=400",
+          alt: "Colocación de cerámica",
+          title: "Colocación de Cerámica",
+          description: "Porcelanato de primera calidad",
+        },
+        {
+          src: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800",
+          thumb:
+            "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400",
+          alt: "Revoque exterior",
+          title: "Revoque Exterior",
+          description: "Frente de casa con revoque impermeable",
+        },
+        {
+          src: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800",
+          thumb:
+            "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400",
+          alt: "Construcción de pared",
+          title: "Construcción de Pared",
+          description: "División de ambientes con ladrillo hueco",
+        },
+        {
+          src: "https://images.unsplash.com/photo-1563298723-dcfebaa392e3?w=800",
+          thumb:
+            "https://images.unsplash.com/photo-1563298723-dcfebaa392e3?w=400",
+          alt: "Cocina reformada",
+          title: "Reforma de Cocina",
+          description: "Mesada y revestimiento cerámico completo",
+        },
+      ];
+
+      // Función que crea elementos de galería con lazy loading
+      function createGalleryItems() {
+        const container = document.getElementById("gallery-container");
+
+        galleryImages.forEach((image, index) => {
+          const div = document.createElement("div");
+          div.className =
+            "relative overflow-hidden rounded-lg shadow-md hover:shadow-2xl cursor-pointer group";
+          div.style.animationDelay = `${index * 0.1}s`;
+          div.classList.add("fade-in");
+          div.onclick = () => openLightbox(index);
+
+          div.innerHTML = `
                     <img 
                         data-src="${image.thumb}" 
                         alt="${image.alt}"
@@ -514,130 +696,142 @@
                         </div>
                     </div>
                 `;
-                
-                container.appendChild(div);
-            });
-        }
 
-        // Sistema de Lightbox/Carrete de fotos
-        let currentImageIndex = 0;
-
-        function openLightbox(index) {
-            currentImageIndex = index;
-            const modal = document.getElementById('lightbox-modal');
-            const img = document.getElementById('lightbox-image');
-            const title = document.getElementById('lightbox-title');
-            const description = document.getElementById('lightbox-description');
-            const counter = document.getElementById('lightbox-counter');
-            
-            const imageData = galleryImages[index];
-            
-            img.src = imageData.src;
-            img.alt = imageData.alt;
-            title.textContent = imageData.title;
-            description.textContent = imageData.description;
-            counter.textContent = `${index + 1} / ${galleryImages.length}`;
-            
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevenir scroll
-        }
-
-        function closeLightbox() {
-            const modal = document.getElementById('lightbox-modal');
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        function navigateLightbox(direction) {
-            currentImageIndex += direction;
-            
-            // Loop circular
-            if (currentImageIndex < 0) {
-                currentImageIndex = galleryImages.length - 1;
-            } else if (currentImageIndex >= galleryImages.length) {
-                currentImageIndex = 0;
-            }
-            
-            openLightbox(currentImageIndex);
-        }
-
-        // Event listeners para el lightbox
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('lightbox-close').onclick = closeLightbox;
-            document.getElementById('lightbox-prev').onclick = () => navigateLightbox(-1);
-            document.getElementById('lightbox-next').onclick = () => navigateLightbox(1);
-            
-            // Cerrar al hacer click en el fondo
-            document.getElementById('lightbox-modal').onclick = (e) => {
-                if (e.target.id === 'lightbox-modal') {
-                    closeLightbox();
-                }
-            };
-            
-            // Navegación con teclado
-            document.addEventListener('keydown', (e) => {
-                const modal = document.getElementById('lightbox-modal');
-                if (modal.classList.contains('active')) {
-                    if (e.key === 'Escape') closeLightbox();
-                    if (e.key === 'ArrowLeft') navigateLightbox(-1);
-                    if (e.key === 'ArrowRight') navigateLightbox(1);
-                }
-            });
+          container.appendChild(div);
         });
+      }
 
-        // Intersection Observer para lazy loading optimizado
-        function setupLazyLoading() {
-            const images = document.querySelectorAll('img[data-src]');
-            
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy-img');
-                        observer.unobserve(img);
-                    }
-                });
-            }, {
-                rootMargin: '50px'
-            });
+      // Sistema de Lightbox/Carrete de fotos
+      let currentImageIndex = 0;
 
-            images.forEach(img => imageObserver.observe(img));
+      function openLightbox(index) {
+        currentImageIndex = index;
+        const modal = document.getElementById("lightbox-modal");
+        const img = document.getElementById("lightbox-image");
+        const title = document.getElementById("lightbox-title");
+        const description = document.getElementById("lightbox-description");
+        const counter = document.getElementById("lightbox-counter");
+
+        const imageData = galleryImages[index];
+
+        img.src = imageData.src;
+        img.alt = imageData.alt;
+        title.textContent = imageData.title;
+        description.textContent = imageData.description;
+        counter.textContent = `${index + 1} / ${galleryImages.length}`;
+
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden"; // Prevenir scroll
+      }
+
+      function closeLightbox() {
+        const modal = document.getElementById("lightbox-modal");
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+
+      function navigateLightbox(direction) {
+        currentImageIndex += direction;
+
+        // Loop circular
+        if (currentImageIndex < 0) {
+          currentImageIndex = galleryImages.length - 1;
+        } else if (currentImageIndex >= galleryImages.length) {
+          currentImageIndex = 0;
         }
 
-        // Animación de elementos al scroll
-        function setupScrollAnimations() {
-            const sections = document.querySelectorAll('section');
-            
-            const sectionObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in');
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
+        openLightbox(currentImageIndex);
+      }
 
-            sections.forEach(section => sectionObserver.observe(section));
-        }
+      // Event listeners para el lightbox
+      document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("lightbox-close").onclick = closeLightbox;
+        document.getElementById("lightbox-prev").onclick = () =>
+          navigateLightbox(-1);
+        document.getElementById("lightbox-next").onclick = () =>
+          navigateLightbox(1);
 
-        // Inicialización
-        document.addEventListener('DOMContentLoaded', () => {
-            createGalleryItems();
-            setupLazyLoading();
-            setupScrollAnimations();
+        // Cerrar al hacer click en el fondo
+        document.getElementById("lightbox-modal").onclick = (e) => {
+          if (e.target.id === "lightbox-modal") {
+            closeLightbox();
+          }
+        };
+
+        // Navegación con teclado
+        document.addEventListener("keydown", (e) => {
+          const modal = document.getElementById("lightbox-modal");
+          if (modal.classList.contains("active")) {
+            if (e.key === "Escape") closeLightbox();
+            if (e.key === "ArrowLeft") navigateLightbox(-1);
+            if (e.key === "ArrowRight") navigateLightbox(1);
+          }
         });
+      });
 
-        // Optimización: remover transiciones durante scroll para mejor performance
-        let scrollTimer;
-        window.addEventListener('scroll', () => {
-            document.body.style.pointerEvents = 'none';
-            clearTimeout(scrollTimer);
-            scrollTimer = setTimeout(() => {
-                document.body.style.pointerEvents = 'auto';
-            }, 100);
-        }, { passive: true });
+      // Intersection Observer para lazy loading optimizado
+      function setupLazyLoading() {
+        const images = document.querySelectorAll("img[data-src]");
+
+        const imageObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove("lazy-img");
+                observer.unobserve(img);
+              }
+            });
+          },
+          {
+            rootMargin: "50px",
+          },
+        );
+
+        images.forEach((img) => imageObserver.observe(img));
+      }
+
+      // Animación de elementos al scroll
+      function setupScrollAnimations() {
+        const sections = document.querySelectorAll("section");
+
+        const sectionObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("fade-in");
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+          },
+        );
+
+        sections.forEach((section) => sectionObserver.observe(section));
+      }
+
+      // Inicialización
+      document.addEventListener("DOMContentLoaded", () => {
+        createGalleryItems();
+        setupLazyLoading();
+        setupScrollAnimations();
+      });
+
+      // Optimización: remover transiciones durante scroll para mejor performance
+      let scrollTimer;
+      window.addEventListener(
+        "scroll",
+        () => {
+          document.body.style.pointerEvents = "none";
+          clearTimeout(scrollTimer);
+          scrollTimer = setTimeout(() => {
+            document.body.style.pointerEvents = "auto";
+          }, 100);
+        },
+        { passive: true },
+      );
     </script>
-</body>
+  </body>
 </html>
